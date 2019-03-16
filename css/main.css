@@ -117,7 +117,7 @@ footer {
         font-size: 3rem;
     }
     .drums-wrapper {
-        margin: 0;
+        margin-top: 1rem;
     }
 
     .drum {
@@ -125,6 +125,7 @@ footer {
     }
 
     .drum-header {
+        margin-top: .5rem;
         font-size: 2rem;
     }
 
