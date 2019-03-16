@@ -16,9 +16,10 @@ function addClass(keyCode) {
 }
 
 
-function removeClass(e) {
-    if (e.propertyName === 'transform') {
-        this.classList.remove('clicked');
+function removeClass(keyCode) {
+    const pressKeyDiv = document.querySelector(`div[data-key="${keyCode}"]`);
+    if (pressKeyDiv !== null) {
+        pressKeyDiv.classList.remove('clicked');
     }
 }
 
@@ -27,9 +28,13 @@ document.addEventListener('keydown', function(e) {
     addClass(e.code); //adding class clicked for the transition when pressed
 })
 
+document.addEventListener('keyup', function(e) {
+    removeClass(e.code); //adding class clicked for the transition when pressed
+})
+
 const drums = document.querySelectorAll('.drum');
 drums.forEach(item => item.addEventListener('click', function(e) {
     playAudio(this.dataset.key);
-    addClass(this.dataset.key);
 }));
-drums.forEach(item => item.addEventListener('transitionend', removeClass));
+
+//drums.forEach(item => item.addEventListener('transitionend', removeClass));
